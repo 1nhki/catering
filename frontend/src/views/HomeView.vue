@@ -40,7 +40,7 @@
       <!-- Bento Box Food Card with Prominent Photo -->
       <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-surface-container-highest">
         <!-- Hero Photo -->
-        <div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+        <div @click="$router.push('/menu')" class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden cursor-pointer transition-transform active:scale-[0.98]">
           <img alt="Salmon Teriyaki Bento Set" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgRhSvNkYR4F_IkYxcha5cUV-IZfKrBqvprXY-cLnuUwbPR8WB5yqjY4YBuAZUon2uadO0IGTzYA6GyulFY8nd3vGuwwH82UZN7b8496ZL7ok1WebOBd94p14s2Pq87KQEXuh8b5W7gSCdMiFNws3s2GalOX5B_rfYB9oU5Joc12hBd3jE0DF8WaPMpfxJDl230EiBNCZI4283Ht6jLRQRn8jCLSfrtg_V3o6cfViA2La_UFMODHrzrg"/>
           <div class="absolute top-3 left-3 bg-primary-container/90 backdrop-blur-sm text-on-primary text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1">
             <span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
