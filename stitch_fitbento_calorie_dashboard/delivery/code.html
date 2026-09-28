@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Fit Bento - Status Pengantaran &amp; Pelacakan</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#2d5a27', // Signature Matcha Green
+              dark: '#1e3d1a',
+              light: '#eaf4e7',
+              accent: '#3e7b36',
+              surface: '#f9f3ea',
+              cream: '#fff9ef',
+              subtle: '#f2eae0'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(45, 90, 39, 0.08)',
+            'floating': '0 8px 30px rgba(0, 0, 0, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Custom Styles for Map Canvas and Micro-interactions -->
+<style data-purpose="custom-styling">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7f2ea;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Subtle pulsing badge */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 0.2; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .pulse-animation {
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    /* Custom Map Grid Background pattern */
+    .map-grid-pattern {
+      background-color: #f4efe6;
+      background-image: 
+        radial-gradient(#d3cbbe 0.75px, transparent 0.75px),
+        linear-gradient(to right, rgba(220, 212, 199, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 212, 199, 0.3) 1px, transparent 1px);
+      background-size: 16px 16px, 48px 48px, 48px 48px;
+    }
+  </style>
+</head>
+<body class="text-neutral-800 antialiased min-h-screen flex justify-center selection:bg-brand-light selection:text-brand-dark">
+<!-- Mobile Screen Container (Emulates iOS viewport) -->
+<div class="w-full max-w-md bg-[#fff9ef] min-h-screen flex flex-col pb-28 relative shadow-2xl border-x border-[#ebe2d3]">
+<!-- BEGIN: TopHeader -->
+<!-- Top App Bar matching Fit Bento brand design -->
+<header class="sticky top-0 z-30 bg-[#fff9ef]/95 backdrop-blur-md px-5 pt-3 pb-3 border-b border-[#f0e7db] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<!-- Fit Bento Brand Icon -->
+<div class="w-9 h-9 rounded-xl bg-brand flex items-center justify-center text-white shadow-sm shadow-brand/20">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v5h7V5H4zm9 0v5h7V5h-7zm7 7H4v7h16v-7z"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-lg font-extrabold tracking-tight text-neutral-900 leading-none">Fit Bento</h1>
+<span class="text-[11px] font-semibold tracking-wide text-brand uppercase">Pelacakan Live</span>
+</div>
+</div>
+<!-- User Profile Badge -->
+<div class="flex items-center gap-2 bg-[#f4ebe0] py-1 px-2.5 rounded-full border border-[#ebdccb]">
+<span class="text-xs font-bold text-neutral-700">Fikri</span>
+<div class="w-6 h-6 rounded-full bg-brand-light border border-brand/30 flex items-center justify-center overflow-hidden">
+<svg class="w-4 h-4 text-brand" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<!-- BEGIN: MainContent -->
+<main class="px-4 pt-4 flex-1 flex flex-col gap-4">
+<!-- Section Title as sketched ("Delivery") -->
+<div class="flex items-center justify-between px-1">
+<div>
+<span class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Status Pengantaran</span>
+<h2 class="text-2xl font-extrabold text-neutral-900 tracking-tight flex items-center gap-2">
+            Pesanan Siangmu
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+              On The Way
+            </span>
+</h2>
+</div>
+<!-- Refresh Indicator -->
+<button aria-label="Refresh status" class="w-8 h-8 rounded-full bg-white border border-[#e8ded0] flex items-center justify-center text-neutral-600 active:scale-95 transition-transform" title="Refresh status">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- BEGIN: GPSMapTrackingSection -->
+<!-- Hand-drawn Top Box: "maps dummy gps tracing" with expand icon -->
+<section aria-label="Peta Pelacakan Pengantaran" class="bg-white rounded-3xl border border-[#ede2d4] overflow-hidden shadow-soft flex flex-col relative">
+<!-- Live GPS Map View Container -->
+<div class="h-64 sm:h-72 w-full relative overflow-hidden map-grid-pattern flex items-center justify-center">
+<!-- Expand/Recenter Map Button (Matching the top-right button in wireframe) -->
+<button aria-label="Perbesar Peta" class="absolute top-3 right-3 z-20 bg-white/95 backdrop-blur-sm p-2 rounded-xl border border-[#dfd4c5] shadow-md text-neutral-700 hover:text-brand active:scale-95 transition-all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- SVG Simulated Route Trajectory -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="routeGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#2d5a27" stop-opacity="0.4"></stop>
+<stop offset="60%" stop-color="#2d5a27" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#3e7b36" stop-opacity="0.8"></stop>
+</lineargradient>
+</defs>
+<!-- Map decorative road lines -->
+<path d="M -20 180 Q 90 140 180 160 T 380 120 T 450 140" fill="none" stroke="#e3dcce" stroke-linecap="round" stroke-width="8"></path>
+<path d="M 60 -10 Q 100 90 120 190 T 160 300" fill="none" stroke="#e3dcce" stroke-linecap="round" stroke-width="7"></path>
+<path d="M 180 20 Q 220 110 320 170 T 420 280" fill="none" stroke="#e8e1d5" stroke-linecap="round" stroke-width="6"></path>
+<!-- Active GPS Delivery Path -->
+<path d="M 55 55 Q 90 90 110 135 T 200 160 T 260 145 T 310 195" fill="none" stroke="url(#routeGradient)" stroke-dasharray="6,4" stroke-linecap="round" stroke-width="4.5"></path>
+</svg>
+<!-- Point A: Fit Bento Cloud Kitchen Origin -->
+<div class="absolute top-10 left-10 flex flex-col items-center">
+<div class="px-2 py-0.5 rounded-md bg-white text-[10px] font-bold text-neutral-600 shadow-sm border border-neutral-200 mb-1">
+              Dapur Bento
+            </div>
+<div class="w-6 h-6 rounded-full bg-brand-dark text-white flex items-center justify-center text-[10px] shadow-md border-2 border-white">
+              🍱
+            </div>
+</div>
+<!-- Courier in Transit Icon (On the route line) -->
+<div class="absolute top-[138px] left-[188px] transform -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+<!-- Pulsing Radar Glow -->
+<div class="absolute -inset-2 rounded-full bg-brand/30 pulse-animation"></div>
+<!-- Courier Badge -->
+<div class="relative w-9 h-9 rounded-full bg-brand text-white shadow-xl flex items-center justify-center border-2 border-white ring-2 ring-brand/40">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M19 7h-3V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h1a3 3 0 0 0 6 0h4a3 3 0 0 0 6 0h1a2 2 0 0 0 2-2v-5l-3-4zm-13 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM16 8.5h2.4l1.8 2.5H16V8.5z"></path>
+</svg>
+</div>
+<span class="bg-neutral-900/90 text-white font-bold text-[9px] px-1.5 py-0.5 rounded mt-1 shadow backdrop-blur-xs whitespace-nowrap">
+              Kurir (800m)
+            </span>
+</div>
+<!-- Point B: Destination (Fikri's Office) -->
+<div class="absolute bottom-10 right-14 flex flex-col items-center z-10">
+<div class="relative w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-lg border-2 border-white">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="px-2 py-0.5 rounded-md bg-white text-[10px] font-bold text-neutral-800 shadow-sm border border-neutral-200 mt-1 whitespace-nowrap">
+              Kantor Fikri (Lt. 8)
+            </div>
+</div>
+<!-- Compass watermarked badge -->
+<div class="absolute bottom-2 left-3 bg-white/80 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-semibold text-neutral-500 flex items-center gap-1 border border-neutral-200/60">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            GPS Aktif • Jakarta Selatan
+          </div>
+</div>
+<!-- Wireframe Bottom Summary boxes: "estimasi waktu" & "status" -->
+<div class="p-3.5 bg-white border-t border-[#f0e7dc] grid grid-cols-2 gap-2.5">
+<!-- Estimasi Waktu Box -->
+<div class="bg-[#fcf8f2] p-2.5 rounded-2xl border border-[#ebdccb] flex flex-col justify-between">
+<span class="text-[11px] font-semibold text-neutral-500 uppercase tracking-tight">Estimasi Waktu</span>
+<div class="mt-1">
+<span class="text-base font-extrabold text-neutral-900 leading-tight">12:15 WIB</span>
+<p class="text-[11px] font-bold text-brand mt-0.5 flex items-center gap-1">
+<svg class="w-3 h-3 inline" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                ~12 menit lagi
+              </p>
+</div>
+</div>
+<!-- Status Box -->
+<div class="bg-[#eef6eb] p-2.5 rounded-2xl border border-[#cee1c8] flex flex-col justify-between">
+<span class="text-[11px] font-semibold text-brand uppercase tracking-tight">Status</span>
+<div class="mt-1">
+<span class="text-sm font-extrabold text-brand-dark leading-tight flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-brand animate-ping"></span>
+                Diantar Kurir
+              </span>
+<p class="text-[11px] font-medium text-brand/80 mt-0.5">Menuju lobi kantor</p>
+</div>
+</div>
+</div>
+<!-- Courier Contact Card (Sub-section) -->
+<div class="px-4 py-2.5 bg-[#fbf6ed] border-t border-[#ede3d5] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-brand-dark text-white flex items-center justify-center font-bold text-xs ring-2 ring-white shadow-sm">
+              BP
+            </div>
+<div>
+<p class="text-xs font-extrabold text-neutral-800 leading-none">Pak Budi Prasetyo</p>
+<div class="flex items-center gap-1 text-[11px] text-neutral-500 mt-1">
+<span>Honda Beat • B 4821 SG</span>
+<span class="text-amber-500 font-semibold flex items-center">★ 4.9</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<a aria-label="Telepon Kurir" class="w-8 h-8 rounded-full bg-white border border-[#dfd2c0] flex items-center justify-center text-brand shadow-xs active:bg-brand-light transition-colors" href="tel:08123456789" title="Hubungi Kurir">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<button aria-label="Chat Kurir" class="w-8 h-8 rounded-full bg-white border border-[#dfd2c0] flex items-center justify-center text-brand shadow-xs active:bg-brand-light transition-colors" title="Kirim Pesan">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</section>
+<!-- END: GPSMapTrackingSection -->
+<!-- BEGIN: DeliveryDetailsAndProofSection -->
+<!-- Lower Wireframe Box: "Delivery ID" & "Foto bukti dikirim!" with "foto" box -->
+<section aria-label="Rincian Pengiriman dan Bukti" class="bg-white rounded-3xl p-4 border border-[#ede2d4] shadow-soft space-y-3.5">
+<!-- Header Row: Delivery ID (Wireframe: 'Delivery ID') -->
+<div class="flex items-center justify-between pb-3 border-b border-[#f3ebde]">
+<div>
+<span class="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">Delivery ID</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-mono text-sm font-extrabold text-neutral-800">#FB-20231025-084</span>
+<button aria-label="Salin Delivery ID" class="text-neutral-400 hover:text-brand text-xs p-1" title="Salin ID">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Menu Bento Pill Tag -->
+<div class="text-right">
+<span class="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#f3efe6] text-neutral-700 border border-[#e5dccf]">
+              Catering Box #084
+            </span>
+</div>
+</div>
+<!-- Wireframe label: "Foto bukti dikirim!" / Bukti Drop-Off -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<h3 class="text-xs font-bold text-neutral-800 tracking-tight">Foto Bukti Dikirim!</h3>
+</div>
+<span class="text-[10px] font-semibold text-neutral-500 bg-[#f7f2ea] px-2 py-0.5 rounded-full">
+              Live Feed Kurir
+            </span>
+</div>
+<!-- Wireframe Box: "foto" container -->
+<div class="relative w-full h-44 rounded-2xl bg-[#f5ede2] border-2 border-dashed border-[#dfd2be] overflow-hidden flex flex-col items-center justify-center group">
+<!-- Graphic Illustration representing drop-off proof box -->
+<div class="w-full h-full bg-gradient-to-tr from-[#ede4d8] to-[#fcf7ee] flex flex-col items-center justify-center p-4 text-center">
+<!-- Bento Package Graphic Placeholder -->
+<div class="w-16 h-16 rounded-2xl bg-white shadow-md border border-[#e2d5c3] flex flex-col items-center justify-center mb-2 relative">
+<span class="text-2xl">🍱</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+</span>
+</div>
+<p class="text-xs font-bold text-neutral-700">Foto Siap Unggah Saat Tiba</p>
+<p class="text-[11px] text-neutral-500 max-w-xs mt-0.5">
+                Kurir akan mengambil foto paket bento di meja resepsionis lantai 8 sebagai tanda terima.
+              </p>
+<!-- Upload simulator button -->
+<span class="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-white text-brand shadow-xs border border-[#ddd0be]">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                Instruksi: Titip di Satpam Lobi jika rapat
+              </span>
+</div>
+<!-- Timestamp tag -->
+<div class="absolute bottom-2.5 left-3 bg-neutral-900/75 backdrop-blur-sm text-white px-2 py-0.5 rounded-md text-[10px] font-mono">
+              25 Okt 2023 • Sesi Siang
+            </div>
+</div>
+</div>
+<!-- Bento Menu Details Summary -->
+<div class="bg-[#fbf7f0] rounded-xl p-3 border border-[#eedfcb] flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-lg">
+              🥗
+            </div>
+<div>
+<p class="text-xs font-bold text-neutral-900">Salmon Teriyaki Bento Set</p>
+<p class="text-[11px] text-neutral-500">Porsi Seimbang • 680 kcal • Halal</p>
+</div>
+</div>
+<span class="text-xs font-extrabold text-brand bg-brand-light px-2 py-1 rounded-lg">1 Box</span>
+</div>
+<!-- Destination Address Detail -->
+<div class="flex items-start gap-2.5 pt-1 text-xs text-neutral-600">
+<svg class="w-4 h-4 text-neutral-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<div class="leading-relaxed">
+<span class="font-bold text-neutral-800">Tujuan Pengantaran:</span>
+<p class="text-neutral-600 mt-0.5">Tech Tower Lt. 8, Unit 802 (Divisi Tech) • Jl. Jendral Sudirman No. 45, Jakarta Selatan</p>
+</div>
+</div>
+</section>
+<!-- END: DeliveryDetailsAndProofSection -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomNavigation -->
+<!-- Hand-drawn 3-tab navigation matching wireframe: Delivery (Truck), Dashboard (Grid/Bento), Menu (Cutlery) -->
+<nav aria-label="Navigasi Utama" class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#fff9ef]/95 backdrop-blur-lg border-t border-[#ede2d2] px-6 py-2 z-40 shadow-lg flex items-center justify-around">
+<!-- Tab 1: Delivery (Active as per wireframe screen) -->
+<a aria-current="page" class="flex flex-col items-center group py-1 text-brand font-bold" href="#delivery">
+<div class="relative p-1 rounded-xl bg-brand-light text-brand">
+<!-- Truck / Delivery Icon from Wireframe -->
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M18 18.5a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5m1.5-9l1.96 2.5H17V9.5h2.5M6 18.5A1.5 1.5 0 0 1 4.5 17 1.5 1.5 0 0 1 6 15.5 1.5 1.5 0 0 1 7.5 17 1.5 1.5 0 0 1 6 18.5M20 7h-4V4H2v13h2a3 3 0 0 0 6 0h4a3 3 0 0 0 6 0h2v-6l-2-4z"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+</div>
+<span class="text-[11px] font-bold tracking-tight mt-1 text-brand">Delivery</span>
+</a>
+<!-- Tab 2: Dashboard (Grid / Bento Icon) -->
+<a class="flex flex-col items-center group py-1 text-neutral-400 hover:text-neutral-700 transition-colors" href="#dashboard">
+<div class="p-1">
+<!-- 4-Grid / Bento Boxes Icon -->
+<svg class="w-6 h-6 stroke-current fill-none" stroke-width="2" viewbox="0 0 24 24">
+<rect height="7" rx="2" width="7" x="3" y="3"></rect>
+<rect height="7" rx="2" width="7" x="14" y="3"></rect>
+<rect height="7" rx="2" width="7" x="14" y="14"></rect>
+<rect height="7" rx="2" width="7" x="3" y="14"></rect>
+</svg>
+</div>
+<span class="text-[11px] font-semibold tracking-tight mt-1">Dashboard</span>
+</a>
+<!-- Tab 3: Menu (Cutlery / Crossed Fork & Spoon as drawn) -->
+<a class="flex flex-col items-center group py-1 text-neutral-400 hover:text-neutral-700 transition-colors" href="#menu">
+<div class="p-1">
+<!-- Cutlery / Crossed Fork and Knife Icon -->
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"></path>
+</svg>
+</div>
+<span class="text-[11px] font-semibold tracking-tight mt-1">Menu</span>
+</a>
+</nav>
+<!-- END: BottomNavigation -->
+</div>
+</body></html>

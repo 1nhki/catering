@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fff9ef;}body{overscroll-behavior:none;font-family:'Plus Jakarta Sans',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-fixed-variant": "#23501e", "on-tertiary-container": "#ffaf8e", "on-tertiary-fixed": "#360f00", "primary": "#154212", "surface-variant": "#e7e2d9", "primary-container": "#2d5a27", "secondary-fixed-dim": "#aed18f", "surface-container-highest": "#e7e2d9", "tertiary-container": "#823b1a", "on-surface": "#1d1b16", "primary-fixed": "#bcf0ae", "error": "#ba1a1a", "inverse-surface": "#32302a", "secondary": "#486730", "on-background": "#1d1b16", "outline": "#72796e", "on-primary": "#ffffff", "tertiary-fixed": "#ffdbcd", "on-primary-fixed": "#002201", "surface-container-low": "#f9f3ea", "surface-container-high": "#ede7de", "on-secondary-fixed-variant": "#314e1b", "surface-tint": "#3b6934", "surface": "#fff9ef", "on-error-container": "#93000a", "secondary-fixed": "#c9eea9", "on-tertiary-fixed-variant": "#763212", "outline-variant": "#c2c9bb", "background": "#fff9ef", "on-surface-variant": "#42493e", "surface-container": "#f3ede4", "on-tertiary": "#ffffff", "surface-dim": "#dfd9d1", "inverse-on-surface": "#f6f0e7", "on-secondary-container": "#4e6d36", "surface-bright": "#fff9ef", "error-container": "#ffdad6", "on-error": "#ffffff", "tertiary": "#642505", "surface-container-lowest": "#ffffff", "secondary-container": "#c9eea9", "tertiary-fixed-dim": "#ffb597", "on-primary-container": "#9dd090", "on-secondary-fixed": "#0b2000", "on-secondary": "#ffffff", "primary-fixed-dim": "#a1d494", "inverse-primary": "#a1d494" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-sm": "1rem", "space-md": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin": "2rem", "gutter": "1.5rem", "margin-sm": "1rem", "space-xl": "2.5rem", "space-xs": "0.25rem" }, fontFamily: { "data-metric": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"] }, fontSize: { "data-metric": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface text-on-surface min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(45,90,39,0.04)]"><div class="h-16 px-gutter-sm flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #2d5a27
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UuGuVSjeyiRUzSGqjVtv4ZF32RDZQ9RfpZshc24w-g4TD1cwGiiok5ma1VxBBPwzaEYMAPXCgAuQzN9sI5ZZdJuBt3a4KggUTUf2y4VBDGfTQhPPsl1PfxUs7lpbnJSUvKyCK9lV32f8usROh_pDENVy6yd6CuOAiHeQFnMe5NPcZibcp4ZHYKtmvwaApjuUJ1shRlRSKJNwhzKIpCUJZf0OGgfcTH2ttQvVco4ZJVjxcwzLZmoBjoNHTX"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Fit Bento</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Bento Menu</span></div></div><div class="flex items-center gap-space-sm"><div class="flex flex-col items-end pr-1"><span class="font-label-md text-label-md text-on-surface">Fikri</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_6px_rgba(78,55,30,0.08)]" src="https://lh3.googleusercontent.com/aida/AEtjO1XVWsxrJkdIFpRI7VP2-s1s_K9WDZdrbfdvvTRsoOIm2IdI6ZmsJDxErHX8At-B2g1w-7xLVNOdGtH3mSN26M1xU_6cBK895vJlvwm8d-H4WXl6gn61S8BbitgpHx8DoE7nfqDwiepmVipWr6p0FNBZhAf-7fy8gxL7Ff6_a_T3-9RnGvR5WOzgdn-946GTuVimdxyzYpJt8gN2s-6x_aplC-VhUklBKiUJd76--DlaZN3f8j9J4Wzb1RXQ"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface"><div class="flex flex-col w-full">
+<!-- Toast Notifikasi Interaktif -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-11/12 max-w-sm px-4 py-3 rounded-xl bg-primary text-on-primary shadow-xl flex items-center justify-between gap-3 transform -translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="swap-toast">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-message">Menu berhasil diperbarui!</span>
+</div>
+<button class="text-on-primary/80 hover:text-on-primary" onclick="dismissToast()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="px-gutter-sm space-y-space-lg pb-space-xl">
+<!-- ================= BAGIAN 1: MENU SEHAT HARI INI ================= -->
+<section class="space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container inline-block"></span>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Menu Sehat Hari Ini</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2.5 py-1 rounded-full">
+          Rabu, 25 Okt
+        </span>
+</div>
+<!-- Bento Box Utama Hari Ini -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(45,90,39,0.06)]">
+<!-- Foto Sajian -->
+<div class="relative w-full aspect-[4/3] overflow-hidden bg-surface-container-high">
+<img alt="Salmon Teriyaki Bento Set" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UrH9qvmmZ2vHMGKQd4Ewk5pLDUa6QyZrQO3VdDSgnfGXeJ57J0_5NTGrzpbOi03z8oBVz1u3VPlbSLSMK_ilG8Qo0Bwd68xhfWZakt7z_K0xcIX81uksrw4abJNd4pcBejHNTKdweHF2QyzIGN3xdy_E0tLCA6PPDy65ci1WZDYeWvAvhHC7uLtMIbPKiTY59JCUJevepfSOyQPzZbgJpZAUfNfP2LTOCco3lQDIjpNkZPahxMAaVkyc4"/>
+<div class="absolute bottom-3 left-3 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Porsi Makan Siang</span>
+</div>
+<div class="absolute top-3 right-3 bg-primary-container text-on-primary px-3 py-1 rounded-full shadow-md">
+<span class="font-label-sm text-label-sm tracking-wide">680 kkal</span>
+</div>
+</div>
+<div class="p-4 space-y-space-md">
+<!-- Judul & Deskripsi Menu -->
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug">Salmon Teriyaki Bento Set</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Nasi merah organik, salmon panggang saus teriyaki gurih, tamagoyaki lembut, edamame segar &amp; acar lobak Jepang.
+            </p>
+</div>
+<!-- Indikator Standar Mutu Ichiju-Sansai -->
+<div class="p-3 bg-surface rounded-xl flex items-start gap-2.5 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">verified</span>
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider block">Standar Mutu Katering</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Ichiju-Sansai Balanced Nutrition • 100% Halal • No Added MSG • Low Sodium
+              </p>
+</div>
+</div>
+<!-- KARTU NUTRIENT FACT LENGKAP -->
+<div class="bg-surface-container-lowest rounded-xl p-4 space-y-4 shadow-[inset_0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between pb-2 border-b-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">vital_signs</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Informasi Nilai Gizi</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Per 1 Porsi Bento</span>
+</div>
+<!-- Total Energi & 3 Makro Utama -->
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="bg-surface-container-low p-2.5 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Protein</span>
+<span class="font-data-metric text-headline-sm text-primary font-bold">42g</span>
+<span class="font-label-sm text-label-sm text-primary-container block font-medium">25% AKG</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Karbohidrat</span>
+<span class="font-data-metric text-headline-sm text-secondary font-bold">68g</span>
+<span class="font-label-sm text-label-sm text-secondary block font-medium">40% AKG</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Lemak Sehat</span>
+<span class="font-data-metric text-headline-sm text-tertiary font-bold">18g</span>
+<span class="font-label-sm text-label-sm text-tertiary block font-medium">24% AKG</span>
+</div>
+</div>
+<!-- Rincian Mikronutrien & Detail Lengkap -->
+<div class="space-y-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase block">Rincian Komposisi &amp; Mikronutrien</span>
+<div class="grid grid-cols-2 gap-x-4 gap-y-2 font-body-sm text-body-sm text-on-surface">
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Serat Pangan</span>
+<span class="font-semibold text-primary">8g (29%)</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Gula Alami</span>
+<span class="font-semibold text-on-surface">6g</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Lemak Jenuh</span>
+<span class="font-semibold text-on-surface">2.5g</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Omega-3 (Salmon)</span>
+<span class="font-semibold text-primary">1.8g</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Natrium (Rendah)</span>
+<span class="font-semibold text-on-surface">480mg</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Kalium / Potassium</span>
+<span class="font-semibold text-on-surface">620mg</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Kalsium</span>
+<span class="font-semibold text-on-surface">15% AKG</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-low/60 px-2 rounded">
+<span class="text-on-surface-variant">Zat Besi</span>
+<span class="font-semibold text-on-surface">22% AKG</span>
+</div>
+</div>
+<!-- Highlight Vitamin D -->
+<div class="flex items-center justify-between px-3 py-2 bg-secondary-container/40 rounded-lg">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">sunny</span>
+                  Vitamin D Alami (Salmon Norwegia)
+                </span>
+<span class="font-label-md text-label-md text-secondary font-bold">65% AKG</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= BAGIAN 2: MENU UNTUK BESOK ================= -->
+<section class="space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Menu untuk Besok</h2>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm">Batas 18:00 WIB</span>
+</div>
+</div>
+<!-- Jadwal Badge & Cut-off status -->
+<div class="bg-surface-container-high rounded-xl p-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]">local_shipping</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Kamis, 26 Okt</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Pengantaran 11:30 - 12:30 WIB</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant px-2.5 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Dapat Diubah
+        </span>
+</div>
+<!-- Card Menu Besok -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(45,90,39,0.06)]" id="tomorrow-card">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img alt="Tori Yakitori Bento Box" class="w-full h-full object-cover" id="tomorrow-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhgNGAUjz4r6hc0H--MjldlKnoeopEEyHAiebFneKzBydWhfhB3GZudzfyAncXYQvMSmFzkSHWDLaQoGYqePcuTRYjoi4fk1GjhmILoQzhLama9QmIDo67HzF6CUxIY2GoxHpfhMNbcfTLOrCnQzipataLQSGDeaxTv9mu7Dz2blBqzSWcp_V8QRjDL-bhaa2u_yqb8Z7iRQOh_oFDZAd9_2lQzPcoiI6Bz-qyjo8tTjtTljeBKeFYDA"/>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-on-surface">
+<span class="font-label-sm text-label-sm font-semibold">Menu Terjadwal</span>
+</div>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="tomorrow-title">Tori Yakitori Bento Box</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="tomorrow-desc">
+              Dada ayam panggang yakitori gurih daun bawang, brokoli kukus, edamame &amp; nasi furikake.
+            </p>
+</div>
+<!-- Ringkasan Cepat Makro Besok -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-2.5 rounded-xl">
+<div class="text-center flex-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Kalori</span>
+<span class="font-label-md text-label-md text-on-surface font-bold" id="tomorrow-cal">620 kkal</span>
+</div>
+<div class="w-px h-6 bg-surface-container-highest"></div>
+<div class="text-center flex-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Protein</span>
+<span class="font-label-md text-label-md text-primary font-bold" id="tomorrow-pro">48g</span>
+</div>
+<div class="w-px h-6 bg-surface-container-highest"></div>
+<div class="text-center flex-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Karbo</span>
+<span class="font-label-md text-label-md text-secondary font-bold" id="tomorrow-carb">58g</span>
+</div>
+<div class="w-px h-6 bg-surface-container-highest"></div>
+<div class="text-center flex-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Lemak</span>
+<span class="font-label-md text-label-md text-tertiary font-bold" id="tomorrow-fat">14g</span>
+</div>
+</div>
+<!-- Aksi: Swap & Pause Buttons -->
+<div class="grid grid-cols-2 gap-3 pt-2">
+<!-- Tombol 1: Swap Menu -->
+<button class="flex items-center justify-center gap-2 bg-primary-container hover:bg-primary text-on-primary py-3 px-3 rounded-xl shadow-md transition-all active:scale-[0.98]" onclick="openSwapSection()">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+<span class="font-label-lg text-label-lg">Swap Menu</span>
+</button>
+<!-- Tombol 2: Pause untuk Besok -->
+<button class="flex items-center justify-center gap-1.5 bg-surface-container-low hover:bg-surface-container-high text-on-surface py-3 px-2 rounded-xl transition-all shadow-sm active:scale-[0.98]" id="pause-btn" onclick="togglePauseDay()">
+<span class="material-symbols-outlined text-[20px] text-tertiary" id="pause-icon">pause_circle</span>
+<span class="font-label-md text-label-md" id="pause-text">Jeda 1 Hari</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= BAGIAN 3: PILIHAN MENU ALTERNATIF BESOK ================= -->
+<section class="space-y-space-md pt-2 scroll-mt-20" id="swap-section">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Pilihan Menu Alternatif Besok</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pilih menu pengganti sebelum batas waktu 18:00 WIB</p>
+</div>
+</div>
+<!-- Alternatif 1: Miso Tofu & Nasu Dengaku -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(45,90,39,0.04)] flex flex-col">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img alt="Miso Tofu &amp; Nasu Dengaku Bento" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9PNxmBvvhpsjJCq176U-Ux1MQ3jhenh0IhOaOM7X1X82YRrDAPaTMvjGyQf7FEquwsjKxR0CmvjVpq2laEbOI7TXpF-RVet7-xFk3Qy2fNrnsBoETI3xLld-_-Vzcef4CgKv750NE4z2XdMAjIiB5nONa9c9U6gbo2Gn8uOWKoxm_g2bqM5fRWQUcHe1qSFR1K_9P_k_H7lCLkHEuSI0F6AAW3N0BjJ5cvJA5-F-fBQf486jFAVWufg"/>
+<span class="absolute top-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-sm text-label-sm shadow-sm">
+            Vegetarian Delight
+          </span>
+<span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-sm text-on-surface font-label-md text-label-md px-2.5 py-1 rounded-lg">
+            510 kkal
+          </span>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Miso Tofu &amp; Nasu Dengaku Bento</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              Tofu bakar saus miso, terong glazed nasu dengaku, nasi beras ungu, salad rumput laut wakame &amp; edamame.
+            </p>
+</div>
+<!-- Rincian Nutrisi Badge Ringkas -->
+<div class="flex flex-wrap gap-2 text-on-surface">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2.5 py-1 rounded-md">Protein 28g</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2.5 py-1 rounded-md">Karbo 65g</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2.5 py-1 rounded-md">Lemak 12g</span>
+<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2.5 py-1 rounded-md">Serat 11g</span>
+</div>
+<button class="w-full py-3 bg-primary-container hover:bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.98]" onclick="selectAlternative('Miso Tofu &amp; Nasu Dengaku Bento (Vegetarian)', '510 kkal', '28g', '65g', '12g', 'https://lh3.googleusercontent.com/aida-public/AB6AXuB9PNxmBvvhpsjJCq176U-Ux1MQ3jhenh0IhOaOM7X1X82YRrDAPaTMvjGyQf7FEquwsjKxR0CmvjVpq2laEbOI7TXpF-RVet7-xFk3Qy2fNrnsBoETI3xLld-_-Vzcef4CgKv750NE4z2XdMAjIiB5nONa9c9U6gbo2Gn8uOWKoxm_g2bqM5fRWQUcHe1qSFR1K_9P_k_H7lCLkHEuSI0F6AAW3N0BjJ5cvJA5-F-fBQf486jFAVWufg', 'Tofu bakar saus miso, terong glazed nasu dengaku, nasi beras ungu &amp; wakame.')">
+<span class="material-symbols-outlined text-[18px]">check</span>
+            Pilih Menu Ini
+          </button>
+</div>
+</div>
+<!-- Alternatif 2: Chef's Salmon Teriyaki (Repeat Order) -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(45,90,39,0.04)] flex flex-col">
+<div class="relative w-full aspect-[16/9] overflow-hidden bg-surface-container-high">
+<img alt="Chef's Salmon Teriyaki Bento" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UrH9qvmmZ2vHMGKQd4Ewk5pLDUa6QyZrQO3VdDSgnfGXeJ57J0_5NTGrzpbOi03z8oBVz1u3VPlbSLSMK_ilG8Qo0Bwd68xhfWZakt7z_K0xcIX81uksrw4abJNd4pcBejHNTKdweHF2QyzIGN3xdy_E0tLCA6PPDy65ci1WZDYeWvAvhHC7uLtMIbPKiTY59JCUJevepfSOyQPzZbgJpZAUfNfP2LTOCco3lQDIjpNkZPahxMAaVkyc4"/>
+<span class="absolute top-3 left-3 bg-primary-container text-on-primary px-3 py-1 rounded-full font-label-sm text-label-sm shadow-sm">
+            Favorit Pelanggan
+          </span>
+<span class="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-sm text-on-surface font-label-md text-label-md px-2.5 py-1 rounded-lg">
+            680 kkal
+          </span>
+</div>
+<div class="p-4 space-y-3">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Chef's Salmon Teriyaki Bento</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+              Potongan salmon norwegia panggang gurih saus teriyaki artisanal, tamagoyaki lembut &amp; edamame.
+            </p>
+</div>
+<!-- Rincian Nutrisi Badge Ringkas -->
+<div class="flex flex-wrap gap-2 text-on-surface">
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2.5 py-1 rounded-md">Protein 42g</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2.5 py-1 rounded-md">Karbo 68g</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest px-2.5 py-1 rounded-md">Lemak 18g</span>
+<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2.5 py-1 rounded-md">Omega-3 1.8g</span>
+</div>
+<button class="w-full py-3 bg-primary-container hover:bg-primary text-on-primary rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.98]" onclick="selectAlternative('Chef\'s Salmon Teriyaki Bento (Repeat Order)', '680 kkal', '42g', '68g', '18g', 'https://lh3.googleusercontent.com/aida/AEtjO1UrH9qvmmZ2vHMGKQd4Ewk5pLDUa6QyZrQO3VdDSgnfGXeJ57J0_5NTGrzpbOi03z8oBVz1u3VPlbSLSMK_ilG8Qo0Bwd68xhfWZakt7z_K0xcIX81uksrw4abJNd4pcBejHNTKdweHF2QyzIGN3xdy_E0tLCA6PPDy65ci1WZDYeWvAvhHC7uLtMIbPKiTY59JCUJevepfSOyQPzZbgJpZAUfNfP2LTOCco3lQDIjpNkZPahxMAaVkyc4', 'Potongan salmon norwegia panggang saus teriyaki, tamagoyaki &amp; edamame.')">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+            Pilih Menu Ini
+          </button>
+</div>
+</div>
+</section>
+<!-- Footer Catatan Nutrisi Ramah -->
+<div class="p-4 bg-surface-container-low rounded-xl text-center space-y-1">
+<div class="flex items-center justify-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">eco</span>
+<span class="font-label-md text-label-md font-semibold">Nutrisi Terukur Presisi</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Semua bento disiapkan setiap subuh dengan bahan organik segar tanpa pengawet.
+      </p>
+</div>
+</div>
+<script>
+    let isPaused = false;
+    let toastTimeout;
+
+    function openSwapSection() {
+      const el = document.getElementById('swap-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('swap-toast');
+      const toastMsg = document.getElementById('toast-message');
+      if (!toast || !toastMsg) return;
+
+      toastMsg.textContent = message;
+      toast.classList.remove('opacity-0', '-translate-y-24', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        dismissToast();
+      }, 3500);
+    }
+
+    function dismissToast() {
+      const toast = document.getElementById('swap-toast');
+      if (toast) {
+        toast.classList.add('opacity-0', '-translate-y-24', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }
+    }
+
+    function selectAlternative(title, cal, pro, carb, fat, imgSrc, desc) {
+      // Perbarui tampilan card besok
+      const titleEl = document.getElementById('tomorrow-title');
+      const calEl = document.getElementById('tomorrow-cal');
+      const proEl = document.getElementById('tomorrow-pro');
+      const carbEl = document.getElementById('tomorrow-carb');
+      const fatEl = document.getElementById('tomorrow-fat');
+      const imgEl = document.getElementById('tomorrow-img');
+      const descEl = document.getElementById('tomorrow-desc');
+
+      if (titleEl) titleEl.textContent = title;
+      if (calEl) calEl.textContent = cal;
+      if (proEl) proEl.textContent = pro;
+      if (carbEl) carbEl.textContent = carb;
+      if (fatEl) fatEl.textContent = fat;
+      if (imgEl) imgEl.src = imgSrc;
+      if (descEl) descEl.textContent = desc;
+
+      if (isPaused) {
+        togglePauseDay(); // batalkan jeda jika user memilih menu baru
+      }
+
+      showToast('Menu besok berhasil diubah ke ' + title.split('(')[0].trim() + '!');
+      
+      const tomorrowCard = document.getElementById('tomorrow-card');
+      if (tomorrowCard) {
+        tomorrowCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function togglePauseDay() {
+      isPaused = !isPaused;
+      const pauseBtn = document.getElementById('pause-btn');
+      const pauseText = document.getElementById('pause-text');
+      const pauseIcon = document.getElementById('pause-icon');
+      const tomorrowCard = document.getElementById('tomorrow-card');
+
+      if (isPaused) {
+        if (pauseText) pauseText.textContent = 'Batalkan Jeda';
+        if (pauseIcon) pauseIcon.textContent = 'play_circle';
+        if (pauseBtn) {
+          pauseBtn.classList.remove('bg-surface-container-low', 'text-on-surface');
+          pauseBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+        }
+        if (tomorrowCard) {
+          tomorrowCard.classList.add('opacity-60');
+        }
+        showToast('Pengantaran Kamis, 26 Okt berhasil dijeda.');
+      } else {
+        if (pauseText) pauseText.textContent = 'Jeda 1 Hari';
+        if (pauseIcon) pauseIcon.textContent = 'pause_circle';
+        if (pauseBtn) {
+          pauseBtn.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+          pauseBtn.classList.add('bg-surface-container-low', 'text-on-surface');
+        }
+        if (tomorrowCard) {
+          tomorrowCard.classList.remove('opacity-60');
+        }
+        showToast('Pengantaran diaktifkan kembali.');
+      }
+    }
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(45,90,39,0.05)]" data-active-classes="text-primary-container font-semibold"><div class="flex justify-around items-center h-16 px-gutter-sm"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="delivery-schedule" href="#"><span class="material-symbols-outlined text-[24px]">local_shipping</span><span class="font-label-sm text-label-sm">Delivery</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="nutrition-dashboard" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-sm text-label-sm">Dashboard</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-1 transition-colors text-primary-container font-semibold" data-path="bento-menu" href="#"><span class="material-symbols-outlined text-[24px]">restaurant</span><span class="font-label-sm text-label-sm">Menu</span></a></div></nav></body></html>
