@@ -148,7 +148,7 @@
         </div>
         <p class="text-xs font-semibold text-on-surface truncate mt-0.5">Driver sedang menuju ke lokasimu</p>
       </div>
-      <button class="text-xs font-bold text-primary bg-surface hover:bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-surface-container-highest flex items-center gap-0.5 transition-transform active:scale-95 flex-shrink-0 shadow-sm" type="button">
+      <button @click="$router.push('/delivery')" class="text-xs font-bold text-primary bg-surface hover:bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-surface-container-highest flex items-center gap-0.5 transition-transform active:scale-95 flex-shrink-0 shadow-sm" type="button">
         <span>Lacak</span>
         <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
       </button>
