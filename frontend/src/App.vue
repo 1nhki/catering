@@ -10,7 +10,7 @@ import { RouterView, RouterLink } from 'vue-router'
         <div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 shadow-sm">
           <img alt="Fit Bento Icon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UuGuVSjeyiRUzSGqjVtv4ZF32RDZQ9RfpZshc24w-g4TD1cwGiiok5ma1VxBBPwzaEYMAPXCgAuQzN9sI5ZZdJuBt3a4KggUTUf2y4VBDGfTQhPPsl1PfxUs7lpbnJSUvKyCK9lV32f8usROh_pDENVy6yd6CuOAiHeQFnMe5NPcZibcp4ZHYKtmvwaApjuUJ1shRlRSKJNwhzKIpCUJZf0OGgfcTH2ttQvVco4ZJVjxcwzLZmoBjoNHTX"/>
         </div>
-        <span class="text-xl font-bold tracking-tight text-primary">Fit Bento</span>
+        <span class="text-xl font-bold tracking-tight text-primary">SEHATIN!</span>
       </div>
       <div class="flex items-center gap-2.5">
         <span class="text-sm font-semibold text-on-surface">Fikri</span>
