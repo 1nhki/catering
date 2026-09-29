@@ -1,0 +1,15 @@
+[build]
+  # Direktori kerja Netlify akan berpindah ke frontend/
+  base = "frontend"
+
+  # Perintah build dijalankan di dalam folder frontend/
+  command = "npm run build"
+
+  # Path relatif terhadap 'base' (artinya membaca frontend/dist)
+  publish = "dist"
+
+# Konfigurasi SPA fallback jika frontend menggunakan client-side routing (React Router, Vue Router, dll)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
